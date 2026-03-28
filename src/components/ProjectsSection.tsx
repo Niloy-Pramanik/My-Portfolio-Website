@@ -251,10 +251,12 @@ export function ProjectsSection() {
                   {/* CTA Buttons */}
                   <div className="flex flex-wrap gap-4 items-center">
                     <motion.a
-                      href={project.link}
+                      href={project.id === '01' ? 'https://github.com/Niloy-Pramanik/HireMe.git' : project.link}
                       className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-semibold rounded-lg shadow-lg shadow-purple-500/30 transition-all duration-300"
                       whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(168, 85, 247, 0.5)' }}
                       whileTap={{ scale: 0.95 }}
+                      target={project.id === '01' ? '_blank' : undefined}
+                      rel={project.id === '01' ? 'noopener noreferrer' : undefined}
                     >
                       View Project
                     </motion.a>
