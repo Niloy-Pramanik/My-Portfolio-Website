@@ -92,8 +92,14 @@ export const ResearchSection = memo(function ResearchSection() {
   ];
 
   return (
-    <section id="research" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
-      <div className="max-w-6xl mx-auto">
+    <section id="research" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white via-purple-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 -right-96 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse" />
+        <div className="absolute bottom-1/3 -left-96 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '2s' }} />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,6 +108,11 @@ export const ResearchSection = memo(function ResearchSection() {
           viewport={{ once: true }}
           className="mb-10 text-center"
         >
+          <div className="mb-4">
+            <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 mb-4">
+              Research & Innovation
+            </span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-2">
             Research & Innovation Focus
           </h2>
