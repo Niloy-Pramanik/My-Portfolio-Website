@@ -1,8 +1,8 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Brain, Network } from 'lucide-react';
+import { Shield, Brain, Network, ChevronDown } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const ResearchCard = memo(function ResearchCard({
@@ -20,44 +20,113 @@ const ResearchCard = memo(function ResearchCard({
   delay: number;
   imageSrc?: string;
 }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
-      whileHover={{ y: -4, transition: { duration: 0.3, ease: "easeOut" } }}
-      className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-slate-700 h-full"
+      className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-slate-700 h-full cursor-pointer"
+      whileHover={{ y: -8 }}
+      onClick={() => setIsExpanded(!isExpanded)}
     >
       {/* Icon Section with gradient background */}
-      <div className="h-32 bg-linear-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 group-hover:from-purple-200 group-hover:to-blue-200 dark:group-hover:from-purple-800/50 dark:group-hover:to-blue-800/50 flex items-center justify-center transition-all duration-300">
-        <div className="w-20 h-20 bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-          <Icon size={32} className="text-white" />
-        </div>
+      <div className="h-32 bg-linear-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 group-hover:from-purple-200 group-hover:to-blue-200 dark:group-hover:from-purple-800/50 dark:group-hover:to-blue-800/50 flex items-center justify-center transition-all duration-300 relative overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div 
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          <div className="absolute inset-0 bg-linear-to-br from-purple-400/20 to-transparent" />
+        </motion.div>
+        
+        <motion.div
+          className="w-20 h-20 bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center transition-transform duration-300 relative z-10"
+          whileHover={{ scale: 1.15, rotate: 12 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <motion.div
+            animate={{ rotate: isExpanded ? 360 : 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Icon size={32} className="text-white" />
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Content Section */}
       <div className="p-8">
-        {/* Title */}
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3">{title}</h3>
+        {/* Title with expand indicator */}
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 flex-1">{title}</h3>
+          <motion.div
+            animate={{ rotate: isExpanded ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex-shrink-0 mt-1"
+          >
+            <ChevronDown size={20} className="text-purple-600 dark:text-purple-400" />
+          </motion.div>
+        </div>
 
         {/* Description */}
         <p className="text-gray-600 dark:text-slate-400 mb-6 leading-relaxed">{description}</p>
 
-        {/* Focus Areas */}
-        <div className="space-y-2">
+        {/* Focus Areas with staggered animation */}
+        <motion.div 
+          className="space-y-2"
+          animate={{ opacity: isExpanded ? 1 : 0.7 }}
+          transition={{ duration: 0.3 }}
+        >
           <p className="text-sm font-semibold text-gray-700 dark:text-slate-300">Focus Areas:</p>
-          <div className="flex flex-wrap gap-2">
-            {focus.map((item) => (
-              <span
+          <motion.div 
+            className="flex flex-wrap gap-2"
+            layout
+          >
+            {focus.map((item, idx) => (
+              <motion.span
                 key={item}
-                className="text-xs px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 rounded-full font-medium transition-all duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/50"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                transition={{ delay: idx * 0.1, duration: 0.3 }}
+                viewport={{ once: true }}
+                className="text-xs px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 rounded-full font-medium transition-all duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/50 shadow-sm hover:shadow-md"
               >
                 {item}
-              </span>
+              </motion.span>
             ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Expanded details */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? "auto" : 0 }}
+          transition={{ duration: 0.3 }}
+          className="overflow-hidden"
+        >
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700">
+            <p className="text-sm text-gray-600 dark:text-slate-400 mb-4">
+              This research area explores innovative solutions and practical applications in the field.
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors duration-300"
+              onClick={(e) => {
+                e.stopPropagation();
+                // Scroll to contact section
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Collaborate on This Topic
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
