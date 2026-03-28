@@ -77,8 +77,15 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 transition-colors duration-300 relative overflow-hidden"
+      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-slate-950 to-slate-900 transition-colors duration-300 relative overflow-hidden"
     >
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 -left-96 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
+        <div className="absolute bottom-0 -right-96 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+      </div>
+
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Text Content */}
