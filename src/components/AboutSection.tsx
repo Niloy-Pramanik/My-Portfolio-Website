@@ -67,9 +67,15 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-300"
+      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white via-purple-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           className="text-center mb-10 md:mb-12"
@@ -78,6 +84,11 @@ export function AboutSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          <div className="mb-4">
+            <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 mb-4">
+              About Me
+            </span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             What Sets Me Apart
           </h2>
