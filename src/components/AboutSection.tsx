@@ -1,27 +1,47 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Code, Server, Brain } from 'lucide-react';
+import { useState } from 'react';
+import ScrollReveal from './ScrollReveal';
 
 export function AboutSection() {
+  const [flipped, setFlipped] = useState<number | null>(null);
+
   const skills = [
     {
-      title: 'Front-End Development',
-      description: 'React, Next.js, Tailwind CSS, TypeScript',
-      icon: '🎨',
+      title: 'Problem Solver',
+      backTitle: 'Analytical Mindset',
+      description: 'Breaking down complex challenges and implementing efficient solutions using modern technologies and best practices',
+      backDescription: 'Passionate about finding elegant solutions to real-world problems with a focus on clean, scalable code',
+      icon: Code,
       color: 'from-blue-500 to-cyan-500',
+      highlights: ['Problem Analysis', 'Algorithm Design', 'Debugging', 'Optimization', 'Best Practices', 'Code Quality'],
     },
     {
-      title: 'Back-End Development',
-      description: 'Python Flask, Node.js, REST APIs, Databases',
-      icon: '⚙️',
+      title: 'Quick Learner',
+      backTitle: 'Continuous Growth',
+      description: 'Rapidly acquiring new skills and adapting to emerging technologies and frameworks in the dynamic tech landscape',
+      backDescription: 'Committed to continuous learning and staying updated with industry trends and cutting-edge tools',
+      icon: Server,
       color: 'from-emerald-500 to-teal-500',
+      highlights: ['Self-Learning', 'Tech Stack Adaptability', 'Documentation', 'Practice', 'Development', 'Innovation'],
     },
     {
-      title: 'AI & Research',
-      description: 'Machine Learning, NLP, Security Research',
-      icon: '🤖',
+      title: 'Team Collaborator',
+      backTitle: 'Communication Expert',
+      description: 'Working effectively in teams, sharing knowledge, and contributing to collaborative projects with clear communication',
+      backDescription: 'Building strong relationships, mentoring peers, and creating positive team dynamics for project success',
+      icon: Brain,
       color: 'from-purple-500 to-pink-500',
+      highlights: ['Communication', 'Teamwork', 'Code Review', 'Knowledge Sharing', 'Leadership', 'Mentoring'],
     },
+  ];
+
+  const stats = [
+    { label: 'Projects Built', value: '10+' },
+    { label: 'Collaborations', value: '15+' },
+    { label: 'Tech Stack Mastered', value: '8+' },
   ];
 
   const containerVariants = {
@@ -30,6 +50,7 @@ export function AboutSection() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delayChildren: 0.1,
       },
     },
   };
@@ -39,83 +60,246 @@ export function AboutSection() {
     visible: {
       opacity: 1,
       y: 0,
+      transition: { duration: 0.8 },
     },
   };
 
   return (
-    <section id="about" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
+    <section
+      id="about"
+      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-300"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            className="space-y-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-10 md:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            What Sets Me Apart
+          </h2>
+          <motion.div 
+            className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto space-y-6"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
           >
-            <motion.div variants={itemVariants}>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-                Why hire me for your next project?
-              </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400">
-                I bring a unique intersection of robust software engineering and intelligent systems research. My passion for full-stack development combined with deep AI expertise allows me to build scalable, innovative solutions.
-              </p>
+            <p className="text-lg leading-relaxed font-medium text-slate-700 dark:text-slate-300">
+              Full-stack developer & AI researcher passionate about building elegant solutions that solve real problems. I craft intuitive web experiences with <span className="text-purple-600 dark:text-purple-400 font-semibold">Python,Next.js, React, and modern tooling</span>, while exploring the frontiers of AI security and system design.
+            </p>
+            <p className="text-base leading-relaxed">
+              Driven by curiosity and the belief that great products come from continuous learning. I thrive on tackling challenging problems, collaborating with brilliant minds, and pushing the boundaries of what's possible on the web.
+            </p>
+            
+            {/* Quote Section */}
+            <motion.div 
+              className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-center"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative max-w-xl text-center">
+                <div className="absolute -top-3 -left-1 text-4xl text-purple-400/30 dark:text-purple-500/20">
+                  "
+                </div>
+                <p className="text-lg md:text-xl font-semibold italic text-slate-800 dark:text-slate-200 px-4 py-4 relative z-10">
+                  Stay hungry, stay foolish.
+                </p>
+                <p className="text-sm text-slate-500 dark:text-slate-500 mt-2 font-medium">
+                  — Steve Jobs
+                </p>
+                <div className="absolute -bottom-2 -right-1 text-4xl text-purple-400/30 dark:text-purple-500/20 rotate-180">
+                  "
+                </div>
+              </div>
             </motion.div>
-
-            <motion.ul variants={containerVariants} className="space-y-3">
-              {[
-                'Full-stack development expertise',
-                'AI and Machine Learning proficiency',
-                'Security-focused development practices',
-                'Collaborative and communication skills',
-                'Continuous learning and innovation',
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  variants={itemVariants}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-orange-500 text-2xl mt-1">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">{item}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
           </motion.div>
+        </motion.div>
 
-          {/* Right Content - Skill Cards */}
-          <motion.div
-            className="grid grid-cols-1 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
-            {skills.map((skill, index) => (
+        {/* Three Skill Cards - Horizontal with Flip Effect */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          {skills.map((skill, index) => {
+            const IconComponent = skill.icon;
+            const isFlipped = flipped === index;
+            return (
               <motion.div
                 key={index}
-                className="group relative"
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
+                className="h-96 cursor-pointer"
+                onMouseEnter={() => setFlipped(index)}
+                onMouseLeave={() => setFlipped(null)}
+                onClick={() => setFlipped(isFlipped ? null : index)}
               >
-                <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-300`} />
-                <div className="relative p-6 md:p-8 bg-gradient-to-br from-slate-50 dark:from-slate-900 to-slate-100 dark:to-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex items-start gap-4">
-                    <span className="text-4xl">{skill.icon}</span>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">
-                        {skill.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                <motion.div
+                  className="relative w-full h-full"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                  }}
+                  animate={{
+                    rotateY: isFlipped ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
+                >
+                  {/* Front Side */}
+                  <motion.div
+                    className="absolute inset-0 w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-lg p-8 flex flex-col justify-between group hover:shadow-2xl hover:border-purple-400 dark:hover:border-purple-500 transition-all duration-300 overflow-hidden"
+                    style={{
+                      backfaceVisibility: 'hidden',
+                    }}
+                  >
+                    {/* Background Gradient Glow */}
+                    <div
+                      className={`absolute inset-0 bg-linear-to-br ${skill.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl`}
+                    />
+
+                    {/* Accent Line */}
+                    <div className={`absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-linear-to-b ${skill.color} transition-all duration-500`} />
+
+                    {/* Icon and Title */}
+                    <div>
+                      {/* Badge */}
+                      <motion.div
+                        className="inline-block mb-4"
+                        animate={{ rotate: [0, 2, -2, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <span className={`px-3 py-1 bg-linear-to-r ${skill.color} text-white rounded-full font-semibold text-xs`}>
+                          {['Problem Solving', 'Growth Mindset', 'Collaboration'][index]}
+                        </span>
+                      </motion.div>
+
+                      <div className="flex items-start gap-4 mb-6">
+                        <motion.div
+                          className={`p-4 rounded-xl bg-linear-to-br ${skill.color} text-white shrink-0`}
+                          whileHover={{ rotate: 10, scale: 1.1 }}
+                          transition={{ type: 'spring', stiffness: 200 }}
+                        >
+                          <IconComponent size={32} />
+                        </motion.div>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 pt-2 relative z-10">
+                          {skill.title}
+                        </h3>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base relative z-10">
                         {skill.description}
                       </p>
                     </div>
-                  </div>
-                </div>
+
+                    {/* Click to flip indicator */}
+                    <motion.p
+                      className="text-center text-sm text-purple-600 dark:text-purple-400 font-medium mt-6 relative z-10 hidden md:block"
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      Hover to flip →
+                    </motion.p>
+                    <motion.p
+                      className="text-center text-sm text-purple-600 dark:text-purple-400 font-medium mt-6 relative z-10 md:hidden"
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      Tap to flip →
+                    </motion.p>
+                  </motion.div>
+
+                  {/* Back Side */}
+                  <motion.div
+                    className="absolute inset-0 w-full h-full bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl shadow-lg p-8 flex flex-col justify-between"
+                    style={{
+                      backfaceVisibility: 'hidden',
+                      rotateY: 180,
+                    }}
+                  >
+                    {/* Title */}
+                    <div>
+                      <h3 className="text-3xl font-bold text-white mb-6">
+                        {skill.backTitle}
+                      </h3>
+
+                      {/* Back Description */}
+                      <p className="text-white/90 leading-relaxed text-lg mb-8">
+                        {skill.backDescription}
+                      </p>
+                    </div>
+
+                    {/* Tech Badges on Back */}
+                    <div className="flex flex-wrap gap-2">
+                      {skill.highlights.map((highlight, idx) => (
+                        <motion.span
+                          key={idx}
+                          whileHover={{ y: -2 }}
+                          className="px-3 py-1 text-sm font-medium bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/40 hover:bg-white/30 transition-all duration-300"
+                        >
+                          {highlight}
+                        </motion.span>
+                      ))}
+                    </div>
+
+                    {/* Flip back indicator */}
+                    <motion.p
+                      className="text-center text-sm text-white/80 font-medium mt-6 hidden md:block"
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      ← Hover to flip back
+                    </motion.p>
+                    <motion.p
+                      className="text-center text-sm text-white/80 font-medium mt-6 md:hidden"
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      ← Tap to flip back
+                    </motion.p>
+                  </motion.div>
+                </motion.div>
               </motion.div>
-            ))}
-          </motion.div>
-        </div>
+            );
+          })}
+        </motion.div>
+
+        {/* Statistics Section Below Cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              className="group relative p-8 rounded-2xl bg-linear-to-br from-purple-50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-900/10 border border-purple-200 dark:border-purple-900/30 hover:border-purple-400 dark:hover:border-purple-600 hover:shadow-lg transition-all duration-300 text-center"
+            >
+              {/* Accent glow */}
+              <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl" />
+
+              {/* Content */}
+              <div className="relative">
+                <div className="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+                  {stat.value}
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 font-semibold">
+                  {stat.label}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
