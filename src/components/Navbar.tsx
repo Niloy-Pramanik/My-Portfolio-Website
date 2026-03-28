@@ -4,6 +4,7 @@ import { memo, useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import CircularText from './CircularText';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -17,17 +18,14 @@ const NAV_LINKS = [
 // Modern Circular Logo Component
 const CircularLogo = () => {
   return (
-    <motion.div 
-      className="relative w-8 h-8 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-linear-to-br from-purple-600 to-purple-700"
-      whileHover={{ scale: 1.1 }}
-      transition={{ duration: 0.3 }}
-    >
-      <img 
-        src="/file.svg" 
-        alt="Niloy Pramanik Logo" 
-        className="w-6 h-6 object-contain"
+    <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
+      <CircularText 
+        text="• NILOY PRAMANIK •" 
+        spinDuration={20}
+        onHover="speedUp"
+        className="w-10 h-10 text-xs"
       />
-    </motion.div>
+    </div>
   );
 };
 
