@@ -32,7 +32,7 @@ const AWARDS: AwardItem[] = [
     title: 'Hackathon Winner',
     description: 'First place winner in 48-hour hackathon competition for innovative solution development.',
     image: '/Hackathon.jpg',
-    badge: '🏅 Winner',
+    badge: '👑 Judges Choice',
   },
   {
     id: 4,
