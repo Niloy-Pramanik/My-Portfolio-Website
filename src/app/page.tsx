@@ -2,7 +2,6 @@ import { HeroSection } from '@/components/HeroSection';
 import { ExploreMore } from '@/components/ExploreMore';
 import { AboutSection } from '@/components/AboutSection';
 import { SkillsSection } from '@/components/SkillsSection';
-import { StatsSection } from '@/components/StatsSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { ProjectShowcase } from '@/components/ProjectShowcase';
 import { ResearchSection } from '@/components/ResearchSection';
@@ -19,7 +18,6 @@ export default function Home() {
         <ExploreMore />
         <AboutSection />
         <SkillsSection />
-        <StatsSection />
         <div id="projects">
           <ProjectsSection />
         </div>
