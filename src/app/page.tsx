@@ -1,25 +1,35 @@
 import { HeroSection } from '@/components/HeroSection';
-import { StatsSection } from '@/components/StatsSection';
+import { ExploreMore } from '@/components/ExploreMore';
 import { AboutSection } from '@/components/AboutSection';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { ArticlesSection } from '@/components/ArticlesSection';
+import { SkillsSection } from '@/components/SkillsSection';
+import { StatsSection } from '@/components/StatsSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
+import { ProjectShowcase } from '@/components/ProjectShowcase';
+import { ResearchSection } from '@/components/ResearchSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import { HeaderWrapper } from '@/components/HeaderWrapper';
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <HeaderWrapper />
+    <div className="flex flex-col bg-white dark:bg-slate-950">
       <main className="flex-1">
-        <HeroSection />
-        <StatsSection />
+        <div id="home">
+          <HeroSection />
+        </div>
+        <ExploreMore />
         <AboutSection />
-        <TestimonialsSection />
-        <ArticlesSection />
-        <ProjectsSection />
-        <ContactSection />
+        <SkillsSection />
+        <StatsSection />
+        <div id="projects">
+          <ProjectsSection />
+        </div>
+        <ProjectShowcase />
+        <div id="research">
+          <ResearchSection />
+        </div>
+        <div id="contact">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>
