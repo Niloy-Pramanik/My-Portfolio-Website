@@ -191,7 +191,7 @@ export function AboutSection() {
                         </span>
                       </motion.div>
 
-                      <div className="flex items-start gap-4 mb-6">
+                      <div className="flex flex-row items-center gap-4 mb-6">
                         <motion.div
                           className={`p-4 rounded-xl bg-linear-to-br ${skill.color} text-white shrink-0`}
                           whileHover={{ rotate: 10, scale: 1.1 }}
@@ -199,7 +199,7 @@ export function AboutSection() {
                         >
                           <IconComponent size={32} />
                         </motion.div>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 pt-2">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 leading-snug">
                           {skill.title}
                         </h3>
                       </div>
