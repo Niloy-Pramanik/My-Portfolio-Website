@@ -39,6 +39,7 @@ export function HeroSection() {
     visible: {
       opacity: 1,
       y: 0,
+      
       transition: { duration: 0.8 },
     },
   };

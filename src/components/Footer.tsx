@@ -101,24 +101,24 @@ export function Footer() {
         <div className="max-w-7xl mx-auto">
           {/* Main Content */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8 lg:gap-12 mb-8 sm:mb-12 md:mb-16"
+            className="grid grid-cols-2 gap-y-10 gap-x-4 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-12 mb-6 sm:mb-12 md:mb-16"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
             {/* Brand Section */}
-            <motion.div variants={itemVariants} className="lg:col-span-1">
-              <div className="mb-6 flex items-center gap-3">
+            <motion.div variants={itemVariants} className="col-span-2 md:col-span-1 lg:col-span-1 mb-2 md:mb-0">
+              <div className="mb-4 flex items-center gap-2">
                 <CircularFooterLogo />
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-xl font-bold">
                   <span className="bg-linear-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">
                     Niloy
                   </span>
                 </h3>
               </div>
-              <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-purple-600 rounded mb-4" />
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-purple-600 rounded mb-3" />
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">
                 Full-Stack Developer crafting modern web applications with elegant design and powerful functionality.
               </p>
               <div className="flex gap-4">
@@ -140,14 +140,14 @@ export function Footer() {
             </motion.div>
 
             {/* Navigation Links */}
-            <motion.div variants={itemVariants}>
-              <h4 className="font-semibold text-lg mb-6 text-white">Navigation</h4>
-              <ul className="space-y-3">
+            <motion.div variants={itemVariants} className="col-span-1">
+              <h4 className="font-semibold text-lg mb-4 text-white">Navigation</h4>
+              <ul className="flex flex-col gap-2 pl-0 ml-0">
                 {navigationLinks.map((link) => (
                   <li key={link.label}>
                     <motion.a
                       href={link.href}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                       whileHover={{ x: 4 }}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -159,14 +159,14 @@ export function Footer() {
             </motion.div>
 
             {/* Resources */}
-            <motion.div variants={itemVariants}>
-              <h4 className="font-semibold text-lg mb-6 text-white">Resources</h4>
-              <ul className="space-y-3">
+            <motion.div variants={itemVariants} className="col-span-1">
+              <h4 className="font-semibold text-lg mb-4 text-white">Resources</h4>
+              <ul className="flex flex-col gap-2 pl-0 ml-0">
                 {resourceLinks.map((link) => (
                   <li key={link.label}>
                     <motion.a
                       href={link.href}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                       whileHover={{ x: 4 }}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -178,24 +178,27 @@ export function Footer() {
             </motion.div>
 
             {/* Quick Connect */}
-            <motion.div variants={itemVariants}>
-              <h4 className="font-semibold text-lg mb-6 text-white">Quick Connect</h4>
-              <ul className="space-y-4">
-                {contactInfo.map((contact) => {
+            <motion.div variants={itemVariants} className="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center text-center md:items-start md:text-left mt-2 md:mt-0">
+              <h4 className="font-semibold text-lg mb-4 text-white">Quick Connect</h4>
+              <ul className="flex flex-col gap-4 pl-0 ml-0 items-center md:items-start">
+                {contactInfo.map((contact, index) => {
                   const IconComponent = contact.icon;
                   return (
-                    <li key={contact.label}>
+                    <li
+                      key={contact.label}
+                      className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-2"
+                    >
                       <motion.a
                         href={contact.href}
-                        className="flex items-start gap-3 group"
+                        className="flex flex-col md:flex-row items-center gap-2 md:gap-4 group w-full md:w-auto"
                         whileHover={{ x: 4 }}
                       >
-                        <div className={`mt-1 shrink-0 ${contact.color}`}>
+                        <div className={`shrink-0 ${contact.color}`}>
                           <IconComponent size={18} />
                         </div>
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 text-xs uppercase tracking-wide">{contact.label}</span>
-                          <span className="text-gray-300 text-sm group-hover:text-purple-400 transition-colors duration-200">
+                        <div className="flex flex-col items-center md:items-start">
+                          <span className="text-slate-500 text-xs uppercase tracking-wider">{contact.label}</span>
+                          <span className="text-slate-300 text-sm hover:text-white transition-colors duration-200">
                             {contact.value}
                           </span>
                         </div>
