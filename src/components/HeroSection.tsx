@@ -147,7 +147,7 @@ export function HeroSection() {
                 <span className="text-purple-600 dark:text-purple-400">|</span>
                 <span className="bg-linear-to-r from-purple-600 to-purple-500 dark:from-purple-400 dark:to-purple-500 bg-clip-text text-transparent">Aspiring AI Engineer</span>
               </p>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg text-left">
                 “I build modern web applications and explore AI-driven solutions. Curious and eager to learn, I enjoy turning ideas into impactful products while growing my skills in the latest technologies.”
               </p>
             </motion.div>
