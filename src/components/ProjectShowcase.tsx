@@ -69,12 +69,14 @@ const CarouselCard = memo(({ award }: CarouselCardProps) => (
     transition={{ duration: 0.3 }}
   >
     {/* Image */}
-    <img
-      src={award.image}
-      alt={award.title}
-      className="absolute inset-0 w-full h-full object-cover"
-      loading="lazy"
-    />
+    {award.image && (
+      <img
+        src={award.image}
+        alt={award.title}
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    )}
 
     {/* Gradient Overlay - Dark gradient top to bottom for text legibility */}
     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
