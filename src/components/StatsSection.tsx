@@ -40,7 +40,7 @@ export function StatsSection() {
     <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-50 dark:from-slate-900 to-white dark:to-slate-950">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 md:gap-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

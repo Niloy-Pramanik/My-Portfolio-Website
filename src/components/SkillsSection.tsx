@@ -142,7 +142,7 @@ function SkillsSection() {
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-4 mb-8">
           {skillsData.map((skill, index) => (
             <motion.div
               key={skill.title}
@@ -176,7 +176,7 @@ function SkillsSection() {
           <p className="text-lg text-slate-400 mb-8 relative z-10">
             I specialize in building scalable, intelligent systems that combine cutting-edge web technologies with advanced AI capabilities. My experience spans from architecting responsive frontends to implementing complex backend solutions with machine learning integration.
           </p>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 relative z-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 relative z-10">
             {[
               { name: 'React', icon: siReact },
               { name: 'Next.js', icon: siNextdotjs },

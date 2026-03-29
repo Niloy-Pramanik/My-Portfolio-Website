@@ -107,7 +107,7 @@ export function ProjectsSection() {
               className="group"
               variants={itemVariants}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12 items-center">
                 {/* Image Section with Premium Vector */}
                 <motion.div
                   className={`${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
@@ -296,7 +296,7 @@ export function ProjectsSection() {
             className="group"
             variants={itemVariants}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12 items-center">
               {/* Image Placeholder */}
               <motion.div
                 className="md:order-1"

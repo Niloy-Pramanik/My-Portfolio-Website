@@ -34,7 +34,7 @@ export function ContactSection() {
         </motion.div>
 
         {/* Two Column Layout: Contact Info + Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 md:gap-16">
           {/* Contact Info Section */}
           <motion.div
             className="space-y-6"
