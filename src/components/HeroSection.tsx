@@ -94,7 +94,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center">
           {/* Left Column: Text Content */}
           <motion.div
-            className="space-y-8"
+            className="space-y-8 flex flex-col items-start text-left w-full"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -116,7 +116,7 @@ export function HeroSection() {
 
             {/* Typewriter Effect Name */}
             <motion.div variants={itemVariants} className="space-y-2">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading flex items-center gap-2 flex-wrap">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading flex items-center gap-2 flex-wrap text-balance">
                 {/* Dynamic Niloy with white to purple gradient fade */}
                 <span className="relative inline-block min-h-[1em]">
                   {displayedText && displayedText.length > 0 && (
@@ -143,7 +143,7 @@ export function HeroSection() {
 
             {/* Description */}
             <motion.div variants={itemVariants} className="space-y-3">
-              <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-100 leading-relaxed flex items-center gap-3 flex-wrap">
+              <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-100 leading-snug text-balance flex items-center gap-3 flex-wrap">
                 <span>Full-Stack Developer</span>
                 <span className="text-purple-600 dark:text-purple-400">|</span>
                 <span className="bg-linear-to-r from-purple-600 to-purple-500 dark:from-purple-400 dark:to-purple-500 bg-clip-text text-transparent">Aspiring AI Engineer</span>
