@@ -89,7 +89,7 @@ export function AboutSection() {
               About Me
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             What Sets Me Apart
           </h2>
           <motion.div 
@@ -301,7 +301,7 @@ export function AboutSection() {
 
               {/* Content */}
               <div className="relative">
-                <div className="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                   {stat.value}
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 font-semibold">

@@ -182,7 +182,7 @@ export const ResearchSection = memo(function ResearchSection() {
               Research & Innovation
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-2">
             Research & Innovation Focus
           </h2>
           <motion.p 

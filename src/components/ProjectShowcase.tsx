@@ -162,7 +162,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
           viewport={{ once: true }}
           className="mb-12 sm:mb-14 md:mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-linear-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">
             Award-Winning Showcase
           </h2>
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
           className="mb-20"
         >
           <div className="mb-6">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
               <Award className="text-yellow-500" size={28} />
               Featured Achievement
             </h3>
@@ -294,7 +294,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-8">
             All Achievements
           </h3>
 

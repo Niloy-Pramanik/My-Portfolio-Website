@@ -127,7 +127,7 @@ function SkillsSection() {
           viewport={{ once: true }}
           className="mb-8 sm:mb-10 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             Technical Skills & Expertise
           </h2>
           <motion.p 
