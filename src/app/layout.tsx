@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Josefin_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Import Josefin Sans - Elegant, geometric headings
+const josefinSans = Josefin_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Import Plus Jakarta Sans - Modern, premium body text (SaaS aesthetic)
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -27,10 +35,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${josefinSans.variable} ${plusJakarta.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-slate-950 dark:bg-slate-950 text-slate-100 dark:text-slate-100 transition-colors duration-300">
+      <body className={`${josefinSans.variable} ${plusJakarta.variable} min-h-full flex flex-col bg-slate-950 dark:bg-slate-950 text-slate-100 dark:text-slate-100 font-body transition-colors duration-300 antialiased`}>
         <ThemeProvider>
           <Navbar />
           {children}
