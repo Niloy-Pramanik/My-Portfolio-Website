@@ -77,7 +77,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="py-12 sm:py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-slate-950 to-slate-900 transition-colors duration-300 relative overflow-hidden"
+      className="py-12 sm:py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-slate-950 to-slate-950 transition-colors duration-300 relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -85,6 +85,9 @@ export function HeroSection() {
         <div className="absolute bottom-0 -right-96 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
       </div>
+
+      {/* Gradient Fade Overlay - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-b from-transparent to-slate-950 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center">
@@ -145,7 +148,7 @@ export function HeroSection() {
                 <span className="bg-linear-to-r from-purple-600 to-purple-500 dark:from-purple-400 dark:to-purple-500 bg-clip-text text-transparent">Aspiring AI Engineer</span>
               </p>
               <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-                Crafting elegant, scalable solutions at the intersection of web development and artificial intelligence. I specialize in building performant applications with modern tech stacks while exploring cutting-edge AI systems. Driven by curiosity, continuous learning, and the pursuit of creating products that make a real impact.
+                “I build modern web applications and explore AI-driven solutions. Curious and eager to learn, I enjoy turning ideas into impactful products while growing my skills in the latest technologies.”
               </p>
             </motion.div>
 
