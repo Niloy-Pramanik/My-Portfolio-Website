@@ -2,8 +2,62 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useState } from 'react';
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Send email using formspree or similar service
+      const response = await fetch('https://formspree.io/f/xyzqkprz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-purple-950/10 to-slate-950 relative overflow-hidden">
       {/* Decorative Background Elements */}
@@ -100,6 +154,7 @@ export function ContactSection() {
 
           {/* Contact Form Section */}
           <motion.form
+            onSubmit={handleSubmit}
             className="space-y-6 bg-purple-950/20 p-8 md:p-10 rounded-2xl border border-purple-500/30 backdrop-blur-sm shadow-lg shadow-purple-500/10"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -118,6 +173,9 @@ export function ContactSection() {
               </label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full px-4 py-3 bg-slate-800/50 border border-purple-500/30 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                 placeholder="John Doe"
                 required
@@ -135,6 +193,9 @@ export function ContactSection() {
               </label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-3 bg-slate-800/50 border border-purple-500/30 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                 placeholder="john@example.com"
                 required
@@ -152,6 +213,9 @@ export function ContactSection() {
               </label>
               <input
                 type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
                 className="w-full px-4 py-3 bg-slate-800/50 border border-purple-500/30 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                 placeholder="Project or collaboration topic"
                 required
@@ -168,6 +232,9 @@ export function ContactSection() {
                 Message
               </label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows={5}
                 className="w-full px-4 py-3 bg-slate-800/50 border border-purple-500/30 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none"
                 placeholder="Tell me about your project or opportunity..."
@@ -177,15 +244,24 @@ export function ContactSection() {
 
             <motion.button
               type="submit"
-              className="w-full py-3 px-6 bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-semibold rounded-lg shadow-lg shadow-purple-500/30 transition-all duration-300"
-              whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(168, 85, 247, 0.4)' }}
-              whileTap={{ scale: 0.98 }}
+              disabled={isLoading}
+              className={`w-full py-3 px-6 bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-semibold rounded-lg shadow-lg shadow-purple-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                submitStatus === 'success' ? 'from-green-600 to-green-700' : ''
+              } ${submitStatus === 'error' ? 'from-red-600 to-red-700' : ''}`}
+              whileHover={!isLoading ? { scale: 1.02, boxShadow: '0 0 30px rgba(168, 85, 247, 0.4)' } : {}}
+              whileTap={!isLoading ? { scale: 0.98 } : {}}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Send Message
+              {isLoading
+                ? 'Sending...'
+                : submitStatus === 'success'
+                ? '✓ Message Sent!'
+                : submitStatus === 'error'
+                ? '✕ Error Sending'
+                : 'Send Message'}
             </motion.button>
           </motion.form>
         </div>
