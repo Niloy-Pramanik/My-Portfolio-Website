@@ -127,6 +127,18 @@ function SkillsSection() {
           viewport={{ once: true }}
           className="mb-8 sm:mb-10 text-center"
         >
+          {/* Pill Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="flex justify-center mb-6"
+          >
+            <span className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-purple-600/50 bg-purple-900/20 text-slate-100 font-medium text-sm md:text-base tracking-wide">
+              My Expertise
+            </span>
+          </motion.div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             Technical Skills & Expertise
           </h2>
