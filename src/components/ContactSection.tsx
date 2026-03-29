@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Code, Briefcase, Share2, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Code2, MessageCircle, Star, Send } from 'lucide-react';
 
 export function ContactSection() {
   return (
@@ -34,7 +34,7 @@ export function ContactSection() {
         </motion.div>
 
         {/* Two Column Layout: Contact Info + Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 md:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 md:gap-16 mb-16">
           {/* Contact Info Section */}
           <motion.div
             className="space-y-6"
@@ -96,35 +96,6 @@ export function ContactSection() {
               </motion.a>
             );
             })}
-
-            {/* Social Links */}
-            <div className="mt-10 pt-8 border-t border-purple-500/20">
-              <h4 className="text-lg font-semibold text-slate-100 mb-4">Follow Me</h4>
-              <div className="flex gap-4">
-                {[
-                  { icon: Code, label: 'GitHub', link: 'https://github.com/Niloy-Pramanik', color: 'text-gray-300 group-hover:text-white' },
-                  { icon: Briefcase, label: 'LinkedIn', link: 'https://linkedin.com/in/niloy-pramanik', color: 'text-blue-400 group-hover:text-blue-300' },
-                  { icon: Share2, label: 'X (Twitter)', link: 'https://twitter.com', color: 'text-cyan-400 group-hover:text-cyan-300' },
-                  { icon: Heart, label: 'Facebook', link: 'https://facebook.com', color: 'text-red-400 group-hover:text-red-300' },
-                ].map((social, i) => {
-                  const IconComponent = social.icon;
-                  return (
-                  <motion.a
-                    key={i}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg hover:bg-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group"
-                    whileHover={{ y: -4, scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    title={social.label}
-                  >
-                    <IconComponent size={20} className={`${social.color}`} />
-                  </motion.a>
-                  );
-                })}
-              </div>
-            </div>
           </motion.div>
 
           {/* Contact Form Section */}
@@ -218,6 +189,80 @@ export function ContactSection() {
             </motion.button>
           </motion.form>
         </div>
+
+        {/* Follow Me Section */}
+        <motion.div
+          className="mt-12 pt-12 border-t border-purple-500/20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">Follow Me</h3>
+            <p className="text-slate-400">Connect with me on social media</p>
+          </div>
+          
+          <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
+            {[
+              { 
+                icon: Code2, 
+                label: 'GitHub', 
+                link: 'https://github.com/Niloy-Pramanik', 
+                color: 'text-gray-300',
+                bgGradient: 'from-gray-700/30 to-gray-600/30',
+                hoverColor: 'hover:text-white',
+                bgHover: 'hover:from-gray-700/50 hover:to-gray-600/50'
+              },
+              { 
+                icon: MessageCircle, 
+                label: 'LinkedIn', 
+                link: 'https://linkedin.com/in/niloy-pramanik', 
+                color: 'text-blue-400',
+                bgGradient: 'from-blue-900/30 to-blue-800/30',
+                hoverColor: 'hover:text-blue-300',
+                bgHover: 'hover:from-blue-900/50 hover:to-blue-800/50'
+              },
+              { 
+                icon: Send, 
+                label: 'Twitter', 
+                link: 'https://twitter.com', 
+                color: 'text-cyan-400',
+                bgGradient: 'from-cyan-900/30 to-cyan-800/30',
+                hoverColor: 'hover:text-cyan-300',
+                bgHover: 'hover:from-cyan-900/50 hover:to-cyan-800/50'
+              },
+              { 
+                icon: Star, 
+                label: 'Facebook', 
+                link: 'https://facebook.com/NiloyPramanik', 
+                color: 'text-blue-500',
+                bgGradient: 'from-blue-900/30 to-indigo-900/30',
+                hoverColor: 'hover:text-blue-400',
+                bgHover: 'hover:from-blue-900/50 hover:to-indigo-900/50'
+              },
+            ].map((social, i) => {
+              const IconComponent = social.icon;
+              return (
+                <motion.a
+                  key={i}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative p-4 sm:p-6 rounded-2xl border border-purple-500/30 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:shadow-purple-500/30 bg-linear-to-br ${social.bgGradient} ${social.bgHover}`}
+                  whileHover={{ y: -8, scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
+                  title={social.label}
+                >
+                  <IconComponent size={32} className={`${social.color} ${social.hoverColor} transition-colors duration-300`} />
+                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    <span className="text-sm font-semibold text-white bg-slate-900 px-3 py-1 rounded-lg">{social.label}</span>
+                  </div>
+                </motion.a>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

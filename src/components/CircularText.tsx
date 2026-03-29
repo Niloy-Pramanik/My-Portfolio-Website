@@ -92,30 +92,43 @@ const CircularText: React.FC<CircularTextProps> = ({
 
   return (
     <motion.div
-      className={`m-0 mx-auto rounded-full relative font-black text-white text-center cursor-pointer origin-center ${className}`}
+      className={`m-0 mx-auto rounded-full relative font-black text-white text-center cursor-pointer origin-center flex items-center justify-center ${className}`}
       style={{ rotate: rotation }}
       initial={{ rotate: 0 }}
       animate={controls}
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      {letters.map((letter, i) => {
-        const rotationDeg = (360 / letters.length) * i;
-        const factor = Math.PI / letters.length;
-        const x = factor * i;
-        const y = factor * i;
-        const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
-
-        return (
-          <span
-            key={i}
-            className="absolute inline-block inset-0 text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
-            style={{ transform, WebkitTransform: transform }}
-          >
-            {letter}
-          </span>
-        );
-      })}
+      {/* Circular Background */}
+      <div className="absolute inset-0 rounded-full border-2 border-purple-500/50 bg-linear-to-br from-purple-600/20 to-purple-400/10" />
+      
+      {/* Center Circle */}
+      <div className="absolute inset-2 rounded-full border border-purple-400/30 bg-linear-to-br from-purple-500/10 to-transparent" />
+      
+      {/* Rotating Letters */}
+      <svg
+        className="absolute w-full h-full"
+        viewBox="0 0 200 200"
+        style={{ filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.3))' }}
+      >
+        <defs>
+          <path
+            id="circlePath"
+            d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"
+            fill="none"
+          />
+        </defs>
+        <text fontSize="24" fontWeight="900" fill="currentColor" letterSpacing="8">
+          <textPath href="#circlePath" startOffset="0%" textAnchor="middle">
+            {text}
+          </textPath>
+        </text>
+      </svg>
+      
+      {/* Center Dot */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50" />
+      </div>
     </motion.div>
   );
 };
