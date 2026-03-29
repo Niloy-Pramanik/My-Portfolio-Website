@@ -242,7 +242,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                   onClick={handlePrevAchievement}
                   whileHover={{ scale: 1.1, x: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white transition-all"
+                  className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white transition-all"
                 >
                   <ChevronLeft size={24} />
                 </motion.button>
@@ -251,7 +251,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                   onClick={handleNextAchievement}
                   whileHover={{ scale: 1.1, x: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white transition-all"
+                  className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white transition-all"
                 >
                   <ChevronRight size={24} />
                 </motion.button>
@@ -331,7 +331,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                 onClick={handlePrevAwards}
                 whileHover={{ scale: 1.1, x: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="absolute -left-6 md:-left-8 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 transition-colors duration-200"
+                className="hidden md:block absolute -left-6 md:-left-8 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 transition-colors duration-200"
               >
                 <ChevronLeft size={20} className="md:w-6 md:h-6" />
               </motion.button>
@@ -343,7 +343,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                 onClick={handleNextAwards}
                 whileHover={{ scale: 1.1, x: 3 }}
                 whileTap={{ scale: 0.95 }}
-                className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 transition-colors duration-200"
+                className="hidden md:block absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:bg-purple-600 hover:text-white dark:hover:bg-purple-600 transition-colors duration-200"
               >
                 <ChevronRight size={20} className="md:w-6 md:h-6" />
               </motion.button>

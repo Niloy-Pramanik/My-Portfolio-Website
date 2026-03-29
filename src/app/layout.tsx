@@ -35,10 +35,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${josefinSans.variable} ${plusJakarta.variable} h-full antialiased scroll-smooth`}
+      className={`${josefinSans.variable} ${plusJakarta.variable} h-full antialiased scroll-smooth overflow-x-hidden`}
       suppressHydrationWarning
     >
-      <body className={`${josefinSans.variable} ${plusJakarta.variable} min-h-full flex flex-col bg-slate-950 dark:bg-slate-950 text-slate-100 dark:text-slate-100 font-body transition-colors duration-300 antialiased`}>
+      <body className={`${josefinSans.variable} ${plusJakarta.variable} min-h-full flex flex-col bg-slate-950 dark:bg-slate-950 text-slate-100 dark:text-slate-100 font-body transition-colors duration-300 antialiased overflow-x-hidden`}>
         <ThemeProvider>
           <Navbar />
           {children}

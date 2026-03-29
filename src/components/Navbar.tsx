@@ -94,13 +94,13 @@ export const Navbar = memo(function Navbar() {
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 overflow-x-hidden ${
           scrolled
             ? 'bg-slate-950/70 backdrop-blur-xl border-b border-purple-500/10'
             : 'bg-slate-950/30 backdrop-blur-md'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[100vw] mx-auto px-4 sm:px-6 lg:px-8 box-border">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo Section */}
             <motion.div
