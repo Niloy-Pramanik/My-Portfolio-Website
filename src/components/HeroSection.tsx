@@ -112,12 +112,20 @@ export function HeroSection() {
 
             {/* Typewriter Effect Name */}
             <motion.div variants={itemVariants} className="space-y-2">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold flex items-center gap-2 flex-wrap">
-                <span className="bg-linear-to-r from-white via-slate-100 to-slate-200 dark:from-white dark:via-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
-                  Niloy
-                </span>
-                <span className="bg-linear-to-r from-purple-500 to-purple-600 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
-                  Pramanik
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading flex items-center gap-2 flex-wrap">
+                {/* Dynamic Niloy with white to purple gradient fade */}
+                <span className="relative inline-block min-h-[1em]">
+                  {displayedText && displayedText.length > 0 && (
+                    <span className="bg-linear-to-r from-white via-purple-200 to-purple-500 dark:from-white dark:via-purple-300 dark:to-purple-400 bg-clip-text text-transparent">
+                      {displayedText.substring(0, Math.min(displayedText.length, 5))}
+                    </span>
+                  )}
+                  {displayedText && displayedText.length > 5 && (
+                    <span className="ml-1 bg-linear-to-r from-purple-600 to-purple-500 dark:from-purple-400 dark:to-purple-500 bg-clip-text text-transparent">
+                      {displayedText.substring(5)}
+                    </span>
+                  )}
+                  {!displayedText && <span className="text-white">&nbsp;</span>}
                 </span>
                 <motion.span
                   animate={{ opacity: [1, 0] }}
@@ -193,15 +201,15 @@ export function HeroSection() {
 
           {/* Right Column: Image with Decorative Elements */}
           <motion.div
-            className="relative flex justify-center"
+            className="relative flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Main Image Container - Large and full width */}
+            {/* Main Image Container - Professional 4:5 portrait ratio */}
             <motion.div 
-              className="relative w-full h-90 lg:h-full flex items-center justify-center"
+              className="relative w-full lg:w-100 aspect-4/5 flex items-center justify-center"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -219,7 +227,7 @@ export function HeroSection() {
               <motion.img
                 src="/images/portfolio_demo.jpg"
                 alt="Portfolio Showcase"
-                className="w-full h-full object-cover object-center rounded-3xl shadow-2xl transition-all duration-300"
+                className="w-full h-full object-cover rounded-3xl shadow-2xl transition-all duration-300"
                 whileHover={{ 
                   boxShadow: '0 30px 60px rgba(168, 85, 247, 0.3)',
                   scale: 1.02,

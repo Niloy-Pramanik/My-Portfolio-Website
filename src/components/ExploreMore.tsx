@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 
 export function ExploreMore() {
   return (
-    <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-300 flex justify-center items-center">
+    <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-slate-950 transition-colors duration-300 flex justify-center items-center">
       <motion.a
         href="#about"
         className="flex flex-col items-center gap-2 text-lg font-semibold text-slate-900 dark:text-slate-100 group cursor-pointer"

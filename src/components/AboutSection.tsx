@@ -134,7 +134,7 @@ export function AboutSection() {
 
         {/* Three Skill Cards - Horizontal with Flip Effect */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-10 mb-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 mb-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -144,10 +144,10 @@ export function AboutSection() {
             const IconComponent = skill.icon;
             const isFlipped = flipped === index;
             return (
-              <motion.div
+              <div
                 key={index}
-                variants={itemVariants}
-                className="h-96 cursor-pointer"
+                className="h-125 cursor-pointer"
+                style={{ perspective: '1000px' }}
                 onMouseEnter={() => setFlipped(index)}
                 onMouseLeave={() => setFlipped(null)}
                 onClick={() => setFlipped(isFlipped ? null : index)}
@@ -163,10 +163,11 @@ export function AboutSection() {
                   transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
                 >
                   {/* Front Side */}
-                  <motion.div
-                    className="absolute inset-0 w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-lg p-8 flex flex-col justify-between group hover:shadow-2xl hover:border-purple-400 dark:hover:border-purple-500 transition-all duration-300 overflow-hidden"
+                  <div
+                    className="absolute inset-0 w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl hover:border-purple-400 dark:hover:border-purple-500 p-8 flex flex-col justify-between group transition-all duration-300 overflow-hidden"
                     style={{
                       backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
                     }}
                   >
                     {/* Background Gradient Glow */}
@@ -178,7 +179,7 @@ export function AboutSection() {
                     <div className={`absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-linear-to-b ${skill.color} transition-all duration-500`} />
 
                     {/* Icon and Title */}
-                    <div>
+                    <div className="relative z-10">
                       {/* Badge */}
                       <motion.div
                         className="inline-block mb-4"
@@ -198,56 +199,55 @@ export function AboutSection() {
                         >
                           <IconComponent size={32} />
                         </motion.div>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 pt-2 relative z-10">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 pt-2">
                           {skill.title}
                         </h3>
                       </div>
 
                       {/* Description */}
-                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base relative z-10">
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base">
                         {skill.description}
                       </p>
                     </div>
 
                     {/* Click to flip indicator */}
-                    <motion.p
-                      className="text-center text-sm text-purple-600 dark:text-purple-400 font-medium mt-6 relative z-10 hidden md:block"
+                    <motion.div
+                      className="text-center mt-6 relative z-10"
                       animate={{ y: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
-                      Hover to flip →
-                    </motion.p>
-                    <motion.p
-                      className="text-center text-sm text-purple-600 dark:text-purple-400 font-medium mt-6 relative z-10 md:hidden"
-                      animate={{ y: [0, 4, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      Tap to flip →
-                    </motion.p>
-                  </motion.div>
+                      <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold hidden md:block">
+                        ↻ Hover to flip
+                      </p>
+                      <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold md:hidden">
+                        ↻ Tap to flip
+                      </p>
+                    </motion.div>
+                  </div>
 
                   {/* Back Side */}
-                  <motion.div
-                    className="absolute inset-0 w-full h-full bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl shadow-lg p-8 flex flex-col justify-between"
+                  <div
+                    className="absolute inset-0 w-full h-full bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl shadow-md hover:shadow-xl p-8 flex flex-col justify-between"
                     style={{
                       backfaceVisibility: 'hidden',
-                      rotateY: 180,
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)',
                     }}
                   >
                     {/* Title */}
-                    <div>
+                    <div className="relative z-10">
                       <h3 className="text-3xl font-bold text-white mb-6">
                         {skill.backTitle}
                       </h3>
 
                       {/* Back Description */}
-                      <p className="text-white/90 leading-relaxed text-lg mb-8">
+                      <p className="text-white/90 leading-relaxed text-base mb-6">
                         {skill.backDescription}
                       </p>
                     </div>
 
                     {/* Tech Badges on Back */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {skill.highlights.map((highlight, idx) => (
                         <motion.span
                           key={idx}
@@ -260,23 +260,21 @@ export function AboutSection() {
                     </div>
 
                     {/* Flip back indicator */}
-                    <motion.p
-                      className="text-center text-sm text-white/80 font-medium mt-6 hidden md:block"
+                    <motion.div
+                      className="text-center relative z-10"
                       animate={{ y: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
-                      ← Hover to flip back
-                    </motion.p>
-                    <motion.p
-                      className="text-center text-sm text-white/80 font-medium mt-6 md:hidden"
-                      animate={{ y: [0, 4, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      ← Tap to flip back
-                    </motion.p>
-                  </motion.div>
+                      <p className="text-sm text-white/90 font-semibold hidden md:block">
+                        ↻ Hover to flip back
+                      </p>
+                      <p className="text-sm text-white/90 font-semibold md:hidden">
+                        ↻ Tap to flip back
+                      </p>
+                    </motion.div>
+                  </div>
                 </motion.div>
-              </motion.div>
+              </div>
             );
           })}
         </motion.div>

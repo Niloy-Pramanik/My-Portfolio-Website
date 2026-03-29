@@ -16,7 +16,7 @@ const AWARDS: AwardItem[] = [
   {
     id: 1,
     title: 'SWE 1st Runner-Up',
-    description: 'Excellence in software engineering and innovative problem-solving at the annual tech competition.',
+    description: 'Excellence in software engineering and innovative problem-solving at the CSE Project Show United International University.',
     image: '/SWE_1st_RunnerUP.PNG',
     badge: '🥈 1st Runner-Up',
   },
@@ -81,16 +81,16 @@ const CarouselCard = memo(({ award }: CarouselCardProps) => (
     {/* Gradient Overlay - Dark gradient top to bottom for text legibility */}
     <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-transparent" />
 
+    {/* Badge - Top Left Corner */}
+    <div className="absolute top-0 left-0 p-4 sm:p-5 md:p-6 z-10">
+      <span className="inline-flex items-center gap-2 px-3 py-2 bg-linear-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full whitespace-nowrap">
+        <Award size={16} />
+        {award.badge}
+      </span>
+    </div>
+
     {/* Content */}
     <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-6 text-white">
-      {/* Badge */}
-      <motion.div className="inline-block mb-3 self-start">
-        <span className="px-3 py-1.5 bg-linear-to-r from-yellow-400 to-orange-500 text-black text-xs sm:text-sm font-bold rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
-          <Award size={14} />
-          {award.badge}
-        </span>
-      </motion.div>
-
       {/* Title */}
       <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 line-clamp-2 leading-tight">
         {award.title}
@@ -216,12 +216,12 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 {/* Badge */}
-                <motion.div className="inline-block mb-4">
-                  <span className="px-4 py-1.5 bg-linear-to-r from-yellow-400 to-orange-500 text-black text-xs sm:text-sm font-bold rounded-full inline-flex items-center gap-1">
-                    <Award size={14} />
+                <div className="mb-2">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full whitespace-nowrap">
+                    <Award size={16} />
                     {currentAchievement.badge}
                   </span>
-                </motion.div>
+                </div>
 
                 {/* Title */}
                 <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 leading-tight">
