@@ -234,7 +234,15 @@ export const ResearchSection = memo(function ResearchSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-white text-purple-600 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg"
+            onClick={(e) => {
+              e.preventDefault();
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                window.history.pushState(null, '', '#contact');
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="px-8 py-3 bg-white text-purple-600 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg cursor-pointer"
           >
             Get In Touch
           </motion.button>
