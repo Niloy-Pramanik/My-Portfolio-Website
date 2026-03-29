@@ -172,7 +172,7 @@ export function HeroSection() {
             {/* CTA Section */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-8 pt-8"
+              className="flex flex-row items-center gap-6 pt-8"
             >
               {/* Download CV Button */}
               <motion.a
