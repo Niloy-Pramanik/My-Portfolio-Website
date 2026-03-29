@@ -37,13 +37,13 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 md:gap-16 mb-16 items-start">
           {/* Contact Info Section */}
           <motion.div
-            className="space-y-6"
+            className="flex flex-col space-y-6 h-full"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-100 mb-8">Contact Information</h3>
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-100 mb-4">Contact Information</h3>
             
             {[
               {
@@ -100,7 +100,7 @@ export function ContactSection() {
 
           {/* Contact Form Section */}
           <motion.form
-            className="space-y-6 bg-purple-950/20 p-8 md:p-10 rounded-2xl border border-purple-500/30 backdrop-blur-sm shadow-lg shadow-purple-500/10"
+            className="space-y-6 bg-purple-950/20 p-8 md:p-10 rounded-2xl border border-purple-500/30 backdrop-blur-sm shadow-lg shadow-purple-500/10 h-full"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
