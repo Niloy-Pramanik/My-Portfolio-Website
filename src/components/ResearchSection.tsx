@@ -33,7 +33,7 @@ const ResearchCard = memo(function ResearchCard({
       onClick={() => setIsExpanded(!isExpanded)}
     >
       {/* Icon Section with gradient background */}
-      <div className="h-32 bg-linear-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 group-hover:from-purple-200 group-hover:to-blue-200 dark:group-hover:from-purple-800/50 dark:group-hover:to-blue-800/50 flex items-center justify-center transition-all duration-300 relative overflow-hidden">
+      <div className="h-24 sm:h-32 bg-linear-to-br from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 group-hover:from-purple-200 group-hover:to-blue-200 dark:group-hover:from-purple-800/50 dark:group-hover:to-blue-800/50 flex items-center justify-center transition-all duration-300 relative overflow-hidden">
         {/* Animated background elements */}
         <motion.div 
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -52,27 +52,27 @@ const ResearchCard = memo(function ResearchCard({
             animate={{ rotate: isExpanded ? 360 : 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Icon size={32} className="text-white" />
+            <Icon size={28} className="text-white" />
           </motion.div>
         </motion.div>
       </div>
 
       {/* Content Section */}
-      <div className="p-8">
+      <div className="p-4 sm:p-6 md:p-8">
         {/* Title with expand indicator */}
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 flex-1">{title}</h3>
+        <div className="flex items-start justify-between gap-4 mb-2 sm:mb-3">
+          <h3 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-slate-100 flex-1">{title}</h3>
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="flex-shrink-0 mt-1"
+            className="shrink-0 mt-1"
           >
             <ChevronDown size={20} className="text-purple-600 dark:text-purple-400" />
           </motion.div>
         </div>
 
         {/* Description */}
-        <p className="text-gray-600 dark:text-slate-400 mb-6 leading-relaxed">{description}</p>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-slate-400 mb-4 sm:mb-6 leading-relaxed">{description}</p>
 
         {/* Focus Areas with staggered animation */}
         <motion.div 
@@ -80,7 +80,7 @@ const ResearchCard = memo(function ResearchCard({
           animate={{ opacity: isExpanded ? 1 : 0.7 }}
           transition={{ duration: 0.3 }}
         >
-          <p className="text-sm font-semibold text-gray-700 dark:text-slate-300">Focus Areas:</p>
+          <p className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-slate-300">Focus Areas:</p>
           <motion.div 
             className="flex flex-wrap gap-2"
             layout
@@ -161,7 +161,7 @@ export const ResearchSection = memo(function ResearchSection() {
   ];
 
   return (
-    <section id="research" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white via-purple-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
+    <section id="research" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white via-purple-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/3 -right-96 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse" />
@@ -178,7 +178,7 @@ export const ResearchSection = memo(function ResearchSection() {
           className="mb-10 text-center"
         >
           <div className="mb-4">
-            <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 mb-4">
+            <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-xs sm:text-sm font-semibold text-purple-400 mb-4">
               Research & Innovation
             </span>
           </div>

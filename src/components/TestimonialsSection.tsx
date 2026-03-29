@@ -43,7 +43,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white dark:from-slate-950 to-slate-50 dark:to-slate-900">
+    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white dark:from-slate-950 to-slate-50 dark:to-slate-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-12 md:mb-16"
@@ -52,10 +52,10 @@ export function TestimonialsSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4">
             What Others Say
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
             Testimonials from teammates, professors, and collaborators
           </p>
         </motion.div>
@@ -74,19 +74,19 @@ export function TestimonialsSection() {
               variants={itemVariants}
               whileHover={{ scale: 1.02, y: -5 }}
             >
-              <div className="h-full p-6 md:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div className="h-full p-4 sm:p-6 md:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-start gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-orange-400 text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed italic">
+                <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 leading-relaxed italic">
                   "{testimonial.text}"
                 </p>
                 <div className="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-                  <span className="text-3xl">{testimonial.avatar}</span>
+                  <span className="text-2xl sm:text-3xl">{testimonial.avatar}</span>
                   <div>
-                    <p className="font-semibold text-slate-900 dark:text-slate-100">
+                    <p className="font-semibold text-sm sm:text-base text-slate-900 dark:text-slate-100">
                       {testimonial.author}
                     </p>
                     <p className="text-sm text-slate-600 dark:text-slate-400">

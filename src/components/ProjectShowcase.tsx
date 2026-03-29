@@ -63,7 +63,7 @@ interface CarouselCardProps {
 
 const CarouselCard = memo(({ award }: CarouselCardProps) => (
   <motion.div
-    className="relative flex-shrink-0 h-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer group"
+    className="relative shrink-0 h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer group"
     style={{ width: 'clamp(280px, 100%, 380px)' }}
     whileHover={{ scale: 1.05 }}
     transition={{ duration: 0.3 }}
@@ -79,20 +79,20 @@ const CarouselCard = memo(({ award }: CarouselCardProps) => (
     )}
 
     {/* Gradient Overlay - Dark gradient top to bottom for text legibility */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+    <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-transparent" />
 
     {/* Content */}
-    <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white">
+    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-6 text-white">
       {/* Badge */}
       <motion.div className="inline-block mb-3 self-start">
-        <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs md:text-sm font-bold rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
+        <span className="px-3 py-1.5 bg-linear-to-r from-yellow-400 to-orange-500 text-black text-xs sm:text-sm font-bold rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
           <Award size={14} />
           {award.badge}
         </span>
       </motion.div>
 
       {/* Title */}
-      <h3 className="text-lg md:text-xl font-bold mb-2 line-clamp-2 leading-tight">
+      <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 line-clamp-2 leading-tight">
         {award.title}
       </h3>
 
@@ -152,7 +152,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
   };
 
   return (
-    <section id="projects" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -162,7 +162,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">
             Award-Winning Showcase
           </h2>
           <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -190,7 +190,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="group relative w-full h-96 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-gradient-to-br from-purple-600 to-blue-600"
+              className="group relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-linear-to-br from-purple-600 to-blue-600"
             >
               {/* Background Image */}
               <motion.div
@@ -206,25 +206,25 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
               </motion.div>
 
               {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
               {/* Content Overlay */}
               <motion.div
-                className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-white"
+                className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-10 text-white"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 {/* Badge */}
                 <motion.div className="inline-block mb-4">
-                  <span className="px-4 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs md:text-sm font-bold rounded-full inline-flex items-center gap-1">
+                  <span className="px-4 py-1.5 bg-linear-to-r from-yellow-400 to-orange-500 text-black text-xs sm:text-sm font-bold rounded-full inline-flex items-center gap-1">
                     <Award size={14} />
                     {currentAchievement.badge}
                   </span>
                 </motion.div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-4xl font-bold mb-3 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 leading-tight">
                   {currentAchievement.title}
                 </h2>
 
@@ -313,7 +313,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                 {AWARDS.map((award) => (
                   <div
                     key={award.id}
-                    className="flex-shrink-0"
+                    className="shrink-0"
                     style={{
                       width: `${100 / cardsPerView}%`,
                       minWidth: 0,
