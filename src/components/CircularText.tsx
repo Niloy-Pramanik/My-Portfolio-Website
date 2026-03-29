@@ -105,21 +105,28 @@ const CircularText: React.FC<CircularTextProps> = ({
       {/* Center Circle */}
       <div className="absolute inset-2 rounded-full border border-purple-400/30 bg-linear-to-br from-purple-500/10 to-transparent" />
       
-      {/* Rotating Letters */}
+      {/* Rotating Letters SVG */}
       <svg
         className="absolute w-full h-full"
-        viewBox="0 0 200 200"
+        viewBox="0 0 240 240"
+        preserveAspectRatio="xMidYMid meet"
         style={{ filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.3))' }}
       >
         <defs>
           <path
             id="circlePath"
-            d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"
+            d="M120,120 m -90,0 a90,90 0 1,1 180,0 a90,90 0 1,1 -180,0"
             fill="none"
           />
         </defs>
-        <text fontSize="24" fontWeight="900" fill="currentColor" letterSpacing="8">
-          <textPath href="#circlePath" startOffset="0%" textAnchor="middle">
+        <text
+          className="fill-white"
+          fontSize="20"
+          fontWeight="900"
+          letterSpacing="3"
+          fontFamily="system-ui, -apple-system, sans-serif"
+        >
+          <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
             {text}
           </textPath>
         </text>
