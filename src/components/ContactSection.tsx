@@ -216,7 +216,7 @@ export function ContactSection() {
               },
               { 
                 label: 'LinkedIn', 
-                link: 'https://linkedin.com/in/niloy-pramanik',
+                link: 'https://www.linkedin.com/in/niloy-pramanik-01a638233/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3ByTQr1qaDQp2IWObkOqLf0A%3D%3D',
                 svg: (<svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.436-.103.249-.129.597-.129.946v5.423h-3.554s.05-8.799 0-9.719h3.554v1.375c.429-.663 1.199-1.606 2.920-1.606 2.135 0 3.753 1.395 3.753 4.396v5.554zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.956.769-1.71 1.958-1.71 1.187 0 1.914.754 1.939 1.71 0 .951-.752 1.71-1.982 1.71zm1.581 11.597H3.715V9.633h3.203v10.819zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" /></svg>),
                 color: 'text-blue-400',
                 hoverColor: 'hover:text-blue-300',
