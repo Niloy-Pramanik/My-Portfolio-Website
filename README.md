@@ -16,13 +16,17 @@
 
 **Modern portfolio website** for a Full-Stack Developer & AI Engineer with:
 - Animated hero section with split-color name display
+- Premium pill badges for section headers ("My Expertise", "Award Winning")
+- Seamless section transitions with gradient fade and ambient glow effects
 - About section with flip cards and statistics
 - Project showcase with GitHub links
-- Skills, research, and contact sections
+- Skills, research, and contact sections with advanced typography
+- Fully responsive contact form with Formspree email integration (50 submissions/month free)
 - Smooth scroll animations with GSAP & Framer Motion
 - Full dark mode support
+- Optimized typography with justified text alignment and constrained line width
 
-**Tech Stack:** Next.js 16.2.1 | React 19.2.4 | TypeScript 5 | Tailwind CSS 4 | Framer Motion 12.38.0
+**Tech Stack:** Next.js 16.2.1 | React 19.2.4 | TypeScript 5 | Tailwind CSS 4 | Framer Motion 12.38.0 | Formspree (Email Backend)
 
 ---
 
@@ -113,9 +117,35 @@ my-portfolio-website/
 
 **Key Files:**
 - `src/app/page.tsx` - Main homepage (combines all sections)
-- `src/components/HeroSection.tsx` - Split-color name display
-- `src/components/ProjectsSection.tsx` - Projects with GitHub links
+- `src/components/HeroSection.tsx` - Hero section with CTA buttons and typography refinements
+- `src/components/ContactSection.tsx` - Contact form with Formspree integration
+- `src/components/SkillsSection.tsx` - Technical skills with premium pill badge
+- `src/components/ProjectsSection.tsx` - Award-winning projects showcase with pill badge
+- `src/components/ExploreMore.tsx` - Section transition with ambient glow effect
 - `tailwind.config.js` - Color & theme customization
+
+---
+
+## Development
+
+**Latest Features & Recent Updates:**
+
+**✨ Form Submission (Formspree Integration)**
+- Fully functional contact form with email backend
+- Free plan: 50 submissions/month
+- Endpoint: `https://formspree.io/f/xpqoprwe`
+- All fields validated (name, email, subject, message)
+- Real-time feedback with status messages (success/error)
+- Auto-reset after 5 seconds
+
+**✨ Premium UI Polish**
+- Pill badges on Skills section ("My Expertise") and Projects section ("Award Winning")
+- Seamless section transitions with gradient fade (Hero) and ambient purple glow (ExploreMore)
+- Advanced typography: Justified text with constrained line width (`max-w-lg`)
+
+**✨ Responsive Button Layout**
+- CTA buttons ("Download CV" & "Let's talk") remain side-by-side on all screen sizes
+- Optimized spacing and alignment for mobile, tablet, and desktop
 
 ---
 
@@ -327,8 +357,15 @@ rm -rf node_modules     # Clear dependencies
 4. ✅ Build: `npm run build`
 5. ✅ Deploy: `vercel --prod`
 
+**Recently Implemented:**
+- ✅ Contact form with Formspree email backend
+- ✅ Premium pill badges for section headers
+- ✅ Seamless section transitions with gradient fade & ambient glow
+- ✅ Advanced typography refinements (justified text, constrained width)
+- ✅ Responsive button layout (side-by-side on all screen sizes)
+
 **For detailed customization, see DESIGN_SUMMARY.md**
 
-**Last Updated:** March 2026  
+**Last Updated:** March 29, 2026  
 **Portfolio:** Niloy Pramanik | Full-Stack Developer & AI Engineer  
 **GitHub:** https://github.com/Niloy-Pramanik
