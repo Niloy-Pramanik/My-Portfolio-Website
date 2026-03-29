@@ -373,17 +373,7 @@ export function ProjectsSection() {
                     ))}
                   </div>
 
-                  {/* Subscribe CTA */}
-                  <div className="pt-4">
-                    <motion.button
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 font-semibold rounded-lg border border-purple-500/30 hover:border-purple-500/50 transition-all duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <span>📬</span>
-                      Notify Me
-                    </motion.button>
-                  </div>
+
                 </div>
               </motion.div>
             </div>
