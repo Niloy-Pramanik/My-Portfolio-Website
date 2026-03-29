@@ -64,7 +64,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-purple-950/10 to-slate-950 relative overflow-hidden">
+    <section id="projects" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-purple-950/10 to-slate-950 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse" />
@@ -75,7 +75,7 @@ export function ProjectsSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <motion.div
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-8 sm:mb-12 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

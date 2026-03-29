@@ -37,7 +37,7 @@ export function StatsSection() {
   };
 
   return (
-    <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 dark:from-slate-900 to-white dark:to-slate-950">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-50 dark:from-slate-900 to-white dark:to-slate-950">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
@@ -70,7 +70,7 @@ export function StatsSection() {
 
         {/* Wave Background Effect */}
         <motion.div
-          className="absolute inset-0 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-20 mt-20 -z-10"
+          className="absolute inset-0 h-1 bg-linear-to-r from-transparent via-orange-500 to-transparent opacity-20 mt-20 -z-10"
           animate={{ width: ['0%', '100%', '0%'] }}
           transition={{ duration: 8, repeat: Infinity }}
         />

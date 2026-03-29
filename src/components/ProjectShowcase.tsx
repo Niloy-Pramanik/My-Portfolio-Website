@@ -160,7 +160,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-12 sm:mb-14 md:mb-16 text-center"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">
             Award-Winning Showcase
@@ -303,7 +303,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
             {/* Cards Container */}
             <div className="relative overflow-hidden">
               <motion.div
-                className="flex gap-4 md:gap-6"
+                className="flex gap-3 sm:gap-4 md:gap-6"
                 animate={{ x: -currentAwardsIndex * (100 / cardsPerView) + '%' }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
                 style={{

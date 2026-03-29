@@ -77,11 +77,11 @@ export function Footer() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto">
           {/* Main Content */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12 md:mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 md:mb-16"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

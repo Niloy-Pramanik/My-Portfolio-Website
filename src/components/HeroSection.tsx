@@ -77,7 +77,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-slate-950 to-slate-900 transition-colors duration-300 relative overflow-hidden"
+      className="py-12 sm:py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-950 via-slate-950 to-slate-900 transition-colors duration-300 relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

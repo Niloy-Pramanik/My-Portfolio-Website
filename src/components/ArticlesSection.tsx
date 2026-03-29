@@ -57,10 +57,10 @@ export function ArticlesSection() {
   };
 
   return (
-    <section id="articles" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
+    <section id="articles" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
@@ -88,7 +88,7 @@ export function ArticlesSection() {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="h-full p-6 bg-gradient-to-br from-slate-50 dark:from-slate-900 to-slate-100 dark:to-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 flex flex-col">
+              <div className="h-full p-6 bg-linear-to-br from-slate-50 dark:from-slate-900 to-slate-100 dark:to-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <span className="text-3xl">{article.icon}</span>
                   <span className="text-xs font-semibold text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/30 px-3 py-1 rounded-full">
@@ -98,7 +98,7 @@ export function ArticlesSection() {
                 <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-orange-500 transition-colors duration-200">
                   {article.title}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 grow">
                   {article.description}
                 </p>
                 <p className="text-xs text-slate-500 dark:text-slate-500">
