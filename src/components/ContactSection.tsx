@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Code2, MessageCircle, Star, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Code2, MessageCircle, Send, Star } from 'lucide-react';
 
 export function ContactSection() {
   return (
