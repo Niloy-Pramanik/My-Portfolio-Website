@@ -164,10 +164,12 @@ export function AboutSection() {
                 >
                   {/* Front Side */}
                   <div
-                    className="absolute inset-0 w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl hover:border-purple-400 dark:hover:border-purple-500 p-8 flex flex-col justify-between group transition-all duration-300 overflow-hidden"
+                    className="absolute inset-0 w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl hover:border-purple-400 dark:hover:border-purple-500 p-8 flex flex-col justify-between group transition-all duration-300 overflow-hidden backface-hidden transform-[translateZ(0)] [-webkit-backface-visibility:hidden] [-webkit-transform:translateZ(0)]"
                     style={{
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)',
+                      WebkitTransform: 'translateZ(0)',
                     }}
                   >
                     {/* Background Gradient Glow */}
@@ -227,11 +229,12 @@ export function AboutSection() {
 
                   {/* Back Side */}
                   <div
-                    className="absolute inset-0 w-full h-full bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl shadow-md hover:shadow-xl p-8 flex flex-col justify-between"
+                    className="absolute inset-0 w-full h-full bg-linear-to-br from-purple-600 to-purple-700 rounded-2xl shadow-md hover:shadow-xl p-8 flex flex-col justify-between backface-hidden transform-[translateZ(0)] [-webkit-backface-visibility:hidden] [-webkit-transform:translateZ(0)]"
                     style={{
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)',
+                      transform: 'rotateY(180deg) translateZ(0)',
+                      WebkitTransform: 'rotateY(180deg) translateZ(0)',
                     }}
                   >
                     {/* Title */}

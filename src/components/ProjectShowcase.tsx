@@ -202,7 +202,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="group relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-linear-to-br from-purple-600 to-blue-600"
+              className="group relative w-full aspect-video md:h-96 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-linear-to-br from-purple-600 to-blue-600"
             >
               {/* Background Image */}
               <motion.div
@@ -213,7 +213,7 @@ export const ProjectShowcase = memo(function ProjectShowcase() {
                 <img
                   src={currentAchievement.image}
                   alt={currentAchievement.title}
-                  className="w-full h-full object-cover opacity-80"
+                  className="w-full h-full object-cover object-center opacity-80"
                 />
               </motion.div>
 

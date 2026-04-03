@@ -3,18 +3,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-// Circular Logo Component
-const CircularFooterLogo = () => (
-  <motion.div
-    whileHover={{ rotate: 360 }}
-    transition={{ duration: 0.8 }}
-    className="relative w-12 h-12 rounded-full border-2 border-purple-500 flex items-center justify-center bg-linear-to-br from-purple-600/20 to-purple-700/20"
-  >
-    <div className="absolute inset-0 rounded-full border border-purple-400/30 opacity-50" />
-    <span className="text-lg font-bold bg-linear-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">N</span>
-  </motion.div>
-);
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -109,13 +97,25 @@ export function Footer() {
           >
             {/* Brand Section */}
             <motion.div variants={itemVariants} className="col-span-2 md:col-span-1 lg:col-span-1 mb-2 md:mb-0">
-              <div className="mb-4 flex items-center gap-2">
-                <CircularFooterLogo />
-                <h3 className="text-xl font-bold">
-                  <span className="bg-linear-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">
+              <div className="mb-4 flex items-center gap-3">
+                {/* Logo Mark: Uses a local image and forces it to be gray/slate */}
+                <div className="relative w-10 h-10 flex shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-900/50 border border-slate-800">
+                  <img 
+                    src="/np-logo.jpg" 
+                    alt="NP Logo" 
+                    className="w-10 h-10 object-cover grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+
+                {/* Typographic Name: Mimics geometric, folded font style */}
+                <div className="flex flex-col justify-center">
+                  <span className="text-lg sm:text-xl font-black uppercase tracking-[0.2em] text-slate-400 leading-none mb-1 hover:text-slate-200 transition-colors">
                     Niloy
                   </span>
-                </h3>
+                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.35em] text-purple-500 leading-none">
+                    Pramanik
+                  </span>
+                </div>
               </div>
               <div className="h-1 w-12 bg-linear-to-r from-purple-500 to-purple-600 rounded mb-3" />
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
