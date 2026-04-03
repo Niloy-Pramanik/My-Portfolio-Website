@@ -174,13 +174,13 @@ function SkillsSection() {
           ))}
         </div>
 
-        {/* Additional Info */}
+        {/* Tech Stack Highlights - Modernized */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 rounded-2xl p-8 md:p-12 relative overflow-hidden border border-slate-700/50 dark:border-slate-800/50"
+          className="rounded-2xl p-8 md:p-12 relative overflow-hidden"
         >
           <h3 className="text-3xl font-bold text-slate-100 mb-4 relative z-10">
             Tech Stack Highlights
@@ -188,7 +188,7 @@ function SkillsSection() {
           <p className="text-lg text-slate-400 mb-8 relative z-10">
             I specialize in building scalable, intelligent systems that combine cutting-edge web technologies with advanced AI capabilities. My experience spans from architecting responsive frontends to implementing complex backend solutions with machine learning integration.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 relative z-10">
             {[
               { name: 'React', icon: siReact },
               { name: 'Next.js', icon: siNextdotjs },
@@ -205,23 +205,18 @@ function SkillsSection() {
             ].map((tech) => (
               <motion.div
                 key={tech.name}
-                whileHover={{ y: -8, scale: 1.08 }}
-                whileTap={{ scale: 0.92 }}
-                className="group"
+                whileHover={{ y: -2 }}
+                className="group flex items-center gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-slate-600 transition-all duration-300 cursor-default"
               >
-                <div className="relative flex flex-col items-center justify-center px-2 py-4 bg-slate-200/80 dark:bg-slate-600/70 backdrop-blur-sm rounded-lg font-medium text-slate-900 dark:text-slate-100 border border-slate-300/60 dark:border-slate-500/60 hover:border-slate-400 dark:hover:border-slate-400 transition-all duration-250 group-hover:shadow-lg group-hover:shadow-slate-900/20">
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-1.5 w-8 h-8 relative flex items-center justify-center"
-                    dangerouslySetInnerHTML={{
-                      __html: `<svg fill="#${tech.icon.hex}" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>${tech.name}</title><path d="${tech.icon.path}"/></svg>`,
-                    }}
-                  />
-                  <span className="text-xs font-semibold text-center text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors duration-250 leading-tight">
-                    {tech.name}
-                  </span>
-                </div>
+                <div
+                  className="w-6 h-6 shrink-0 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  dangerouslySetInnerHTML={{
+                    __html: `<svg fill="#${tech.icon.hex}" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>${tech.name}</title><path d="${tech.icon.path}"/></svg>`,
+                  }}
+                />
+                <span className="text-sm font-medium text-slate-400 group-hover:text-slate-100 transition-colors duration-300 truncate">
+                  {tech.name}
+                </span>
               </motion.div>
             ))}
           </div>
