@@ -1,10 +1,11 @@
 import { HeroSection } from '@/components/HeroSection';
 import { ExploreMore } from '@/components/ExploreMore';
 import { AboutSection } from '@/components/AboutSection';
-import { SkillsSection } from '@/components/SkillsSection';
+import { TechStackSection } from '@/components/TechStackSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { ProjectShowcase } from '@/components/ProjectShowcase';
 import { ResearchSection } from '@/components/ResearchSection';
+import { CertificatesSection } from '@/components/CertificatesSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 
@@ -17,7 +18,7 @@ export default function Home() {
         </div>
         <ExploreMore />
         <AboutSection />
-        <SkillsSection />
+        <TechStackSection />
         <div id="projects">
           <ProjectsSection />
         </div>
@@ -25,6 +26,7 @@ export default function Home() {
         <div id="research">
           <ResearchSection />
         </div>
+        <CertificatesSection />
         <div id="contact">
           <ContactSection />
         </div>
