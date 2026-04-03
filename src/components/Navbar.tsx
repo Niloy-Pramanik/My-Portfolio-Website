@@ -41,7 +41,7 @@ export const Navbar = memo(function Navbar() {
       setScrolled(window.scrollY > 50);
 
       // Track active section
-      const sections = ['home', 'about', 'skills', 'projects', 'research', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'research', 'certificates', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
