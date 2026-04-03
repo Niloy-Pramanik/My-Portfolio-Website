@@ -1,57 +1,57 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export function CertificatesSection() {
   const certificates = [
     {
       id: 1,
-      title: 'Full Stack Web Development',
-      organization: 'Udemy',
-      issueDate: '2024',
-      description: 'Comprehensive course covering modern web development with React, Node.js, and MongoDB',
-      color: 'from-blue-500 to-cyan-500',
+      title: 'Art Of Communication',
+      issuer: 'Grameenphone Academy',
+      date: 'March 2026',
+      image: 'certificate-art-of-communication_page-0001.jpg',
+      credentialUrl: 'https://www.grameenphone.academy/cert/010a0166ade8',
     },
     {
       id: 2,
-      title: 'AI Security Research',
-      organization: 'IEEE',
-      issueDate: '2023',
-      description: 'Research certification in adversarial machine learning and neural network security',
-      color: 'from-purple-500 to-pink-500',
+      title: 'Corporate Presentation Skills',
+      issuer: 'Grameenphone Academy',
+      date: 'March 2026',
+      image: 'certificate-corporate-presentation-skill.jpgskills_page-0001.jpg',
+      credentialUrl: 'https://www.grameenphone.academy/cert/9fd5e013e1bd',
     },
     {
       id: 3,
-      title: 'Advanced Python Programming',
-      organization: 'Coursera',
-      issueDate: '2024',
-      description: 'Expert-level Python development with focus on optimization and design patterns',
-      color: 'from-emerald-500 to-teal-500',
+      title: 'Sharpen your Communication Skills',
+      issuer: 'Grameenphone Academy',
+      date: 'March 2026',
+      image: 'Sharpen-your-communication-skill.jpg',
+      credentialUrl: 'https://www.grameenphone.academy/cert/60c0799e7430',
     },
     {
       id: 4,
-      title: 'Machine Learning Specialization',
-      organization: 'DeepLearning.AI',
-      issueDate: '2024',
-      description: 'Specialization in deep learning, neural networks, and computer vision applications',
-      color: 'from-orange-500 to-red-500',
+      title: 'LinkedIn 101',
+      issuer: 'Grameenphone Academy',
+      date: 'March 2024',
+      image: 'Linkedin-101.jpg',
+      credentialUrl: 'https://www.grameenphone.academy/cert/065514ccd568',
     },
     {
       id: 5,
-      title: 'Next.js & TypeScript Mastery',
-      organization: 'Frontend Masters',
-      issueDate: '2024',
-      description: 'Advanced Next.js development with TypeScript, performance optimization, and best practices',
-      color: 'from-yellow-500 to-orange-500',
+      title: 'Smart CV Writing',
+      issuer: 'Grameenphone Academy',
+      date: 'January 2024',
+      image: 'certificate-smart-cv.jpg',
+      credentialUrl: 'https://www.grameenphone.academy/cert/6fdaae304223',
     },
     {
       id: 6,
-      title: 'Cloud Architecture with AWS',
-      organization: 'AWS Academy',
-      issueDate: '2023',
-      description: 'AWS certified cloud architecture and deployment best practices',
-      color: 'from-pink-500 to-rose-500',
+      title: 'AI Security Research',
+      issuer: 'IEEE',
+      date: 'December 2023',
+      image: '/placeholder-cert.jpg',
+      credentialUrl: 'https://ieee.org/verify/ai-security',
     },
   ];
 
@@ -108,9 +108,9 @@ export function CertificatesSection() {
           </p>
         </motion.div>
 
-        {/* Certificates Grid */}
+        {/* Certificates Grid - Desktop */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -123,60 +123,115 @@ export function CertificatesSection() {
               variants={itemVariants}
             >
               <motion.div
-                className="relative h-full rounded-2xl overflow-hidden border border-slate-700/50 bg-linear-to-br from-slate-900/50 to-slate-900/20 hover:border-purple-500/50 transition-all duration-300"
-                whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(168, 85, 247, 0.15)' }}
+                whileHover={{ y: -4 }}
+                className="group relative flex flex-col rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-slate-600 transition-all duration-300 overflow-hidden cursor-pointer"
               >
-                {/* Color accent bar */}
-                <div className={`h-1 w-full bg-linear-to-r ${cert.color}`} />
+                {/* Certificate Image */}
+                <div className="relative w-full aspect-video overflow-hidden bg-slate-800/50">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
 
                 {/* Content */}
-                <div className="p-6 md:p-8 relative">
-                  {/* Icon */}
-                  <motion.div
-                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${cert.color} text-white flex items-center justify-center mb-4`}
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                    transition={{ type: 'spring', stiffness: 200 }}
-                  >
-                    <Award size={24} />
-                  </motion.div>
-
+                <div className="flex flex-col flex-1 p-5 md:p-6">
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-slate-100 mb-1 line-clamp-2">
                     {cert.title}
                   </h3>
 
-                  {/* Organization */}
-                  <p className="text-sm font-semibold text-purple-400 mb-3">
-                    {cert.organization}
+                  {/* Issuer */}
+                  <p className="text-sm font-medium text-slate-400 mb-3">
+                    {cert.issuer}
                   </p>
 
-                  {/* Description */}
-                  <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-                    {cert.description}
-                  </p>
+                  {/* Spacer */}
+                  <div className="flex-1" />
 
                   {/* Date */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-700/30">
-                    <span className="text-xs font-semibold text-slate-500">
-                      {cert.issueDate}
-                    </span>
-                    <motion.a
-                      href="#"
-                      className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 hover:text-purple-300 transition-all duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16} />
-                    </motion.a>
-                  </div>
-                </div>
+                  <p className="text-xs text-slate-500 mb-3">
+                    {cert.date}
+                  </p>
 
-                {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-linear-to-br ${cert.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
+                  {/* View Credential Link */}
+                  <motion.a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors duration-300 group/link"
+                    whileHover={{ x: 2 }}
+                  >
+                    View Credential
+                    <ExternalLink size={14} className="group-hover/link:translate-x-0.5 transition-transform duration-300" />
+                  </motion.a>
+                </div>
               </motion.div>
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Certificates Carousel - Mobile */}
+        <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+          <motion.div
+            className="flex gap-4 pb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {certificates.map((cert) => (
+              <motion.div
+                key={cert.id}
+                className="group relative flex flex-col w-[85vw] shrink-0 snap-center rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-slate-600 transition-all duration-300 overflow-hidden cursor-pointer"
+                whileHover={{ y: -4 }}
+              >
+                {/* Certificate Image */}
+                <div className="relative w-full aspect-video overflow-hidden bg-slate-800/50">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-4">
+                  {/* Title */}
+                  <h3 className="text-base font-bold text-slate-100 mb-1 line-clamp-2">
+                    {cert.title}
+                  </h3>
+
+                  {/* Issuer */}
+                  <p className="text-sm font-medium text-slate-400 mb-2">
+                    {cert.issuer}
+                  </p>
+
+                  {/* Spacer */}
+                  <div className="flex-1" />
+
+                  {/* Date */}
+                  <p className="text-xs text-slate-500 mb-3">
+                    {cert.date}
+                  </p>
+
+                  {/* View Credential Link */}
+                  <motion.a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors duration-300 group/link"
+                    whileHover={{ x: 2 }}
+                  >
+                    View Credential
+                    <ExternalLink size={14} className="group-hover/link:translate-x-0.5 transition-transform duration-300" />
+                  </motion.a>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
 
         {/* CTA Section */}
         <motion.div
