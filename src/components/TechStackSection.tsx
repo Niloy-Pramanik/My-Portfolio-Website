@@ -1,6 +1,8 @@
 'use client';
 
+import { memo, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { Code, Server, Zap } from 'lucide-react';
 import {
   siReact,
   siPython,
@@ -26,7 +28,97 @@ import {
   siVercel,
 } from 'simple-icons';
 
+const SkillCard = memo(function SkillCard({
+  icon: Icon,
+  title,
+  skills,
+  isActive,
+  onClick,
+}: {
+  icon: typeof Code;
+  title: string;
+  skills: string[];
+  isActive: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <motion.div
+      onClick={onClick}
+      whileHover={{ y: -8, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 group relative overflow-hidden ${
+        isActive
+          ? 'bg-gray-50 dark:bg-slate-800 border border-purple-400 dark:border-purple-500 shadow-xl'
+          : 'bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-xl'
+      }`}
+    >
+      {/* Background glow effect on hover */}
+      <div className="absolute inset-0 bg-linear-to-br from-purple-400/0 via-transparent to-purple-400/0 group-hover:from-purple-400/10 group-hover:via-purple-400/5 group-hover:to-purple-400/10 transition-all duration-300 pointer-events-none" />
+
+      <div className="relative z-10">
+        <div className="flex items-center gap-3 mb-4">
+          <motion.div
+            whileHover={{ rotate: 10, scale: 1.1 }}
+            className={`p-3 rounded-lg transition-all duration-300 ${
+              isActive ? 'bg-purple-100 dark:bg-purple-900/30' : 'bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/50'
+            }`}
+          >
+            <Icon
+              size={24}
+              className={`text-purple-600 dark:text-purple-400`}
+            />
+          </motion.div>
+          <h3 className={`font-bold text-lg transition-colors duration-300 text-gray-900 dark:text-slate-100 group-hover:text-purple-600 dark:group-hover:text-purple-300`}>
+            {title}
+          </h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill, idx) => (
+            <motion.span
+              key={skill}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.05 }}
+              className={`text-xs font-medium px-3 py-1 rounded-full transition-all duration-300 ${
+                isActive
+                  ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
+                  : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 group-hover:bg-purple-200 group-hover:text-purple-800 dark:group-hover:bg-purple-800 dark:group-hover:text-purple-100'
+              }`}
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+});
+
 export function TechStackSection() {
+  const [activeSkill, setActiveSkill] = useState(0);
+
+  const handleSkillClick = useCallback((index: number) => {
+    setActiveSkill(index);
+  }, []);
+
+  const skillsData = [
+    {
+      icon: Code,
+      title: 'Frontend',
+      skills: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion'],
+    },
+    {
+      icon: Server,
+      title: 'Backend',
+      skills: ['Node.js', 'Python', 'Flask', 'SQLLite', 'MongoDB'],
+    },
+    {
+      icon: Zap,
+      title: 'AI & Research',
+      skills: ['Machine Learning', 'WSN', 'Security', 'Data Science', 'Agentic AI', 'RAG Systems'],
+    },
+  ];
+
   const techStack = {
     Languages: [
       { name: 'C', icon: siC },
@@ -111,6 +203,27 @@ export function TechStackSection() {
             Comprehensive proficiency across languages, frameworks, and AI/ML technologies with hands-on experience in production environments
           </motion.p>
         </motion.div>
+
+        {/* Three Summary Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+          {skillsData.map((skill, index) => (
+            <motion.div
+              key={skill.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: '-50px' }}
+            >
+              <SkillCard
+                icon={skill.icon}
+                title={skill.title}
+                skills={skill.skills}
+                isActive={activeSkill === index}
+                onClick={() => handleSkillClick(index)}
+              />
+            </motion.div>
+          ))}
+        </div>
 
         {/* Tech Stack Highlights - Categorized */}
         <motion.div
