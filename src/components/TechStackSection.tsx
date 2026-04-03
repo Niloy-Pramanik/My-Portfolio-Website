@@ -25,7 +25,7 @@ import {
   siDocker,
   siGooglecloud,
   siLangchain,
-  siVercel,
+  siNextdotjs,
 } from 'simple-icons';
 
 const SkillCard = memo(function SkillCard({
@@ -155,7 +155,7 @@ export function TechStackSection() {
     { name: 'AWS', icon: siGooglecloud },
     { name: 'PyTorch', icon: siPytorch },
     { name: 'LangChain', icon: siLangchain },
-    { name: 'Vercel', icon: siVercel },
+    { name: 'Next.js', icon: siNextdotjs },
   ];
 
   return (
