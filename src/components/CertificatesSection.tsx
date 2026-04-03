@@ -97,11 +97,11 @@ export function CertificatesSection() {
         >
           <div className="mb-4">
             <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 mb-4">
-              Achievements
+              Certificates
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-100 mb-4">
-            Certifications & Achievements
+            Certifications & Licenses
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Professional certifications and course completions showcasing continuous learning
@@ -124,15 +124,17 @@ export function CertificatesSection() {
             >
               <motion.div
                 whileHover={{ y: -4 }}
-                className="group relative flex flex-col rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-slate-600 transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative flex flex-col rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer shadow-lg shadow-black/20 hover:shadow-2xl hover:shadow-purple-500/30"
               >
                 {/* Certificate Image */}
                 <div className="relative w-full aspect-video overflow-hidden bg-slate-800/50">
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-95"
                   />
+                  {/* Gradient overlay on hover - subtle light effect */}
+                  <div className="absolute inset-0 bg-linear-to-br from-purple-400/0 via-purple-300/0 to-pink-400/0 group-hover:from-purple-400/10 group-hover:via-transparent group-hover:to-pink-400/5 transition-all duration-500 pointer-events-none" />
                 </div>
 
                 {/* Content */}
@@ -184,7 +186,7 @@ export function CertificatesSection() {
             {certificates.map((cert) => (
               <motion.div
                 key={cert.id}
-                className="group relative flex flex-col w-[85vw] shrink-0 snap-center rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-slate-600 transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative flex flex-col w-[85vw] shrink-0 snap-center rounded-xl bg-slate-900/40 border border-slate-800 hover:bg-slate-800/80 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer shadow-lg shadow-black/20 hover:shadow-2xl hover:shadow-purple-500/30"
                 whileHover={{ y: -4 }}
               >
                 {/* Certificate Image */}
@@ -192,8 +194,10 @@ export function CertificatesSection() {
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-95"
                   />
+                  {/* Gradient overlay on hover - subtle light effect */}
+                  <div className="absolute inset-0 bg-linear-to-br from-purple-400/0 via-purple-300/0 to-pink-400/0 group-hover:from-purple-400/10 group-hover:via-transparent group-hover:to-pink-400/5 transition-all duration-500 pointer-events-none" />
                 </div>
 
                 {/* Content */}
