@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import "./globals.css";
@@ -43,6 +44,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
